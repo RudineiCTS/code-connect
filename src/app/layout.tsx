@@ -1,18 +1,15 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Prompt } from "next/font/google";
 import "./globals.css";
 import { Aside } from "@/components/Aside";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+const prompt = Prompt({
+  weight: ['400', '600'],
+  subsets: ['latin'],
+  display: 'swap',
+  style:"normal"
+
+})
 
 export const metadata: Metadata = {
   title: "Code Connect",
@@ -26,9 +23,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body   className={prompt.className}>
         <div className="app-container">
-          <Aside/>
+          <Aside />
           {children}
         </div>
       </body>
