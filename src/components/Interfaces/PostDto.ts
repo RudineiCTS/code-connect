@@ -1,15 +1,14 @@
-export interface PostDto{ 
-    id: number,
-    cover: string,
-    title: string,
-    slug: string,
-    body:string,
-    markdown: string,
-    author: {
-        id: number,
-        name: string,
-        username: string,
-        avatar: string,
+export interface PostDto {
+    author:{
+      id:number;
+      name:string;
+      username:string;
+      avatar:string;
     }
-
-}
+    body:string;
+    cover:string;
+    id:string;
+    markdown:string;
+    slug:string;
+    title:string;
+  }
