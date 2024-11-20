@@ -55,3 +55,8 @@
   color: #81fe88;
   text-decoration: none;
 }
+
+.link {
+  text-decoration: none;
+  cursor: pointer;
+}
