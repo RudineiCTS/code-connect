@@ -1,7 +1,7 @@
 import logger from "@/logger";
 
-async function getPostBySlug(slug: string) {
-  const url = `http://localhost:3042/posts?slug=${slug}`;
+ async function getPostBySlug(slug: string) {
+  const url = `http://localhost:3043/posts?slug=${slug}`;
   const response = await fetch(url);
   if (!response.ok) {
     logger.error("Ops, alguma coisa correu mal");
@@ -15,7 +15,16 @@ async function getPostBySlug(slug: string) {
   return data[0];
 }
 
-function PagePost() {
+type PagePostProps = {
+  params: {
+    slug: string;
+  };
+};
+
+async function PagePost({params}: PagePostProps) {
+  console.log(params.slug);
+  const post = await getPostBySlug(params.slug);
+  console.log(post)
   return <h1>Page Post</h1>;
 }
 

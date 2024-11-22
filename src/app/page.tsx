@@ -1,8 +1,6 @@
 import logger from "@/logger";
-import HomePage from "./home_page";
 import styles from "./page.module.css";
 import { CardPost } from "@/components/CardPost";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 
 export interface PostDto {
@@ -21,7 +19,6 @@ export interface PostDto {
 }
 
 export async function getAllPosts(page: string) {
-  console.log(page)
   const response = await fetch(
     `http://localhost:3043/posts?_page=${page}&_per_page=6`
   );
@@ -33,13 +30,7 @@ export async function getAllPosts(page: string) {
   return posts;
 }
 
-// export default async function Home(){
-//   const {data: posts, prev, next} = await getAllPosts(1);
 
-//   return (
-//     <HomePage next={next} posts={posts} prev={prev}/>
-//   )
-// }
 interface HomeProps {
   searchParams: { [key: string]: string | undefined };
 }
